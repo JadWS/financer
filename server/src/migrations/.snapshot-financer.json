@@ -1,0 +1,275 @@
+{
+  "namespaces": [
+    "public"
+  ],
+  "name": "public",
+  "tables": [
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "unsigned": true,
+          "autoincrement": true,
+          "primary": true,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "categorie": {
+          "name": "categorie",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "type": {
+          "name": "type",
+          "type": "transaction_type",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "nativeEnumName": "transaction_type",
+          "enumItems": [
+            "0",
+            "1"
+          ],
+          "mappedType": "enum"
+        }
+      },
+      "name": "categorie",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "categorie_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {},
+      "nativeEnums": {
+        "transaction_type": {
+          "name": "transaction_type",
+          "schema": "public",
+          "items": [
+            "0",
+            "1"
+          ]
+        },
+        "users": {
+          "name": "users",
+          "schema": "public",
+          "items": [
+            "0",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "unsigned": true,
+          "autoincrement": true,
+          "primary": true,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "original_categorie": {
+          "name": "original_categorie",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "dbcategorie_id": {
+          "name": "dbcategorie_id",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        }
+      },
+      "name": "map",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "map_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "map_dbcategorie_id_foreign": {
+          "constraintName": "map_dbcategorie_id_foreign",
+          "columnNames": [
+            "dbcategorie_id"
+          ],
+          "localTableName": "public.map",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.categorie",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {
+        "transaction_type": {
+          "name": "transaction_type",
+          "schema": "public",
+          "items": [
+            "0",
+            "1"
+          ]
+        },
+        "users": {
+          "name": "users",
+          "schema": "public",
+          "items": [
+            "0",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "unsigned": true,
+          "autoincrement": true,
+          "primary": true,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "user": {
+          "name": "user",
+          "type": "users",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "nativeEnumName": "users",
+          "enumItems": [
+            "0",
+            "1"
+          ],
+          "mappedType": "enum"
+        },
+        "categorie_id": {
+          "name": "categorie_id",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "transaction_date": {
+          "name": "transaction_date",
+          "type": "date",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "date"
+        }
+      },
+      "name": "transaction",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "transaction_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "transaction_categorie_id_foreign": {
+          "constraintName": "transaction_categorie_id_foreign",
+          "columnNames": [
+            "categorie_id"
+          ],
+          "localTableName": "public.transaction",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.categorie",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {
+        "transaction_type": {
+          "name": "transaction_type",
+          "schema": "public",
+          "items": [
+            "0",
+            "1"
+          ]
+        },
+        "users": {
+          "name": "users",
+          "schema": "public",
+          "items": [
+            "0",
+            "1"
+          ]
+        }
+      }
+    }
+  ],
+  "nativeEnums": {
+    "transaction_type": {
+      "name": "transaction_type",
+      "schema": "public",
+      "items": [
+        "0",
+        "1"
+      ]
+    },
+    "users": {
+      "name": "users",
+      "schema": "public",
+      "items": [
+        "0",
+        "1"
+      ]
+    }
+  }
+}
