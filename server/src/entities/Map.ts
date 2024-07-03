@@ -1,5 +1,5 @@
 import { Entity, ManyToOne, PrimaryKey, Property } from "@mikro-orm/core";
-import { Categorie } from "./Categorie";
+import { Category } from "./Category";
 
 @Entity()
 export class Map {
@@ -7,8 +7,8 @@ export class Map {
     id!: number;
 
     @Property()
-    originalCategorie!: string;
+    originalCategory!: string;
 
-    @ManyToOne(() => Categorie)
-    DBCategorie!: Categorie;
+    @ManyToOne(() => Category)
+    DBCategory!: Category;
 }

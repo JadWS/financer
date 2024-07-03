@@ -15,8 +15,8 @@
           "nullable": false,
           "mappedType": "integer"
         },
-        "categorie": {
-          "name": "categorie",
+        "category": {
+          "name": "category",
           "type": "varchar(255)",
           "unsigned": false,
           "autoincrement": false,
@@ -33,17 +33,20 @@
           "nullable": false,
           "nativeEnumName": "transaction_type",
           "enumItems": [
-            "0",
-            "1"
+            "INCOME",
+            "SUSBSCRIPTIONS",
+            "HOME",
+            "PLANNED_PAYMENTS",
+            "PAYMENTS"
           ],
           "mappedType": "enum"
         }
       },
-      "name": "categorie",
+      "name": "category",
       "schema": "public",
       "indexes": [
         {
-          "keyName": "categorie_pkey",
+          "keyName": "category_pkey",
           "columnNames": [
             "id"
           ],
@@ -60,16 +63,19 @@
           "name": "transaction_type",
           "schema": "public",
           "items": [
-            "0",
-            "1"
+            "INCOME",
+            "SUSBSCRIPTIONS",
+            "HOME",
+            "PLANNED_PAYMENTS",
+            "PAYMENTS"
           ]
         },
         "users": {
           "name": "users",
           "schema": "public",
           "items": [
-            "0",
-            "1"
+            "Jad",
+            "Khaled"
           ]
         }
       }
@@ -85,8 +91,8 @@
           "nullable": false,
           "mappedType": "integer"
         },
-        "original_categorie": {
-          "name": "original_categorie",
+        "original_category": {
+          "name": "original_category",
           "type": "varchar(255)",
           "unsigned": false,
           "autoincrement": false,
@@ -94,8 +100,8 @@
           "nullable": false,
           "mappedType": "string"
         },
-        "dbcategorie_id": {
-          "name": "dbcategorie_id",
+        "dbcategory_id": {
+          "name": "dbcategory_id",
           "type": "int",
           "unsigned": false,
           "autoincrement": false,
@@ -120,16 +126,16 @@
       ],
       "checks": [],
       "foreignKeys": {
-        "map_dbcategorie_id_foreign": {
-          "constraintName": "map_dbcategorie_id_foreign",
+        "map_dbcategory_id_foreign": {
+          "constraintName": "map_dbcategory_id_foreign",
           "columnNames": [
-            "dbcategorie_id"
+            "dbcategory_id"
           ],
           "localTableName": "public.map",
           "referencedColumnNames": [
             "id"
           ],
-          "referencedTableName": "public.categorie",
+          "referencedTableName": "public.category",
           "updateRule": "cascade"
         }
       },
@@ -138,16 +144,19 @@
           "name": "transaction_type",
           "schema": "public",
           "items": [
-            "0",
-            "1"
+            "INCOME",
+            "SUSBSCRIPTIONS",
+            "HOME",
+            "PLANNED_PAYMENTS",
+            "PAYMENTS"
           ]
         },
         "users": {
           "name": "users",
           "schema": "public",
           "items": [
-            "0",
-            "1"
+            "Jad",
+            "Khaled"
           ]
         }
       }
@@ -181,19 +190,30 @@
           "nullable": false,
           "nativeEnumName": "users",
           "enumItems": [
-            "0",
-            "1"
+            "Jad",
+            "Khaled"
           ],
           "mappedType": "enum"
         },
-        "categorie_id": {
-          "name": "categorie_id",
+        "category_id": {
+          "name": "category_id",
           "type": "int",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
           "mappedType": "integer"
+        },
+        "value": {
+          "name": "value",
+          "type": "numeric(10,2)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "precision": 10,
+          "scale": 2,
+          "mappedType": "decimal"
         },
         "transaction_date": {
           "name": "transaction_date",
@@ -221,16 +241,16 @@
       ],
       "checks": [],
       "foreignKeys": {
-        "transaction_categorie_id_foreign": {
-          "constraintName": "transaction_categorie_id_foreign",
+        "transaction_category_id_foreign": {
+          "constraintName": "transaction_category_id_foreign",
           "columnNames": [
-            "categorie_id"
+            "category_id"
           ],
           "localTableName": "public.transaction",
           "referencedColumnNames": [
             "id"
           ],
-          "referencedTableName": "public.categorie",
+          "referencedTableName": "public.category",
           "updateRule": "cascade"
         }
       },
@@ -239,16 +259,19 @@
           "name": "transaction_type",
           "schema": "public",
           "items": [
-            "0",
-            "1"
+            "INCOME",
+            "SUSBSCRIPTIONS",
+            "HOME",
+            "PLANNED_PAYMENTS",
+            "PAYMENTS"
           ]
         },
         "users": {
           "name": "users",
           "schema": "public",
           "items": [
-            "0",
-            "1"
+            "Jad",
+            "Khaled"
           ]
         }
       }
@@ -259,16 +282,19 @@
       "name": "transaction_type",
       "schema": "public",
       "items": [
-        "0",
-        "1"
+        "INCOME",
+        "SUSBSCRIPTIONS",
+        "HOME",
+        "PLANNED_PAYMENTS",
+        "PAYMENTS"
       ]
     },
     "users": {
       "name": "users",
       "schema": "public",
       "items": [
-        "0",
-        "1"
+        "Jad",
+        "Khaled"
       ]
     }
   }

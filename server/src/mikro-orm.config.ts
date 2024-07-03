@@ -10,7 +10,7 @@ export default {
     user: "postgres",
     password: "postgres",
     driver: PostgreSqlDriver,
-    debug: false,
+    debug: true,
     migrations: {
         path: "./src/migrations"
     },

@@ -1,5 +1,5 @@
 import { Entity, Enum, ManyToOne, PrimaryKey, Property } from "@mikro-orm/core";
-import { Categorie } from "./Categorie";
+import { Category } from "./Category";
 
 @Entity()
 export class Transaction {
@@ -12,14 +12,17 @@ export class Transaction {
     @Enum({ items: () => UserEnum, nativeEnumName: 'users' })
     user!: UserEnum;
 
-    @ManyToOne(() => Categorie)
-    categorie!: Categorie;
+    @ManyToOne(() => Category)
+    category!: Category;
+
+    @Property({ type: 'decimal', precision: 10, scale: 2 })
+    value!: number
 
     @Property({ type: "date" })
     transactionDate: Date
 }
 
 export enum UserEnum {
-    JAD,
-    KHALED
+    JAD = 'Jad',
+    KHALED = 'Khaled'
 }

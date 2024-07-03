@@ -1,0 +1,122 @@
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+html,
+body,
+#root,
+.main {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    padding-top: 25px;
+    background-color: #0d1117;
+}
+
+.dark-modal .modal-header .close-btn {
+    filter: invert(1);
+    opacity: 1;
+}
+
+.dark-modal .modal-header .close-btn:hover,
+.dark-modal .modal-header .close-btn:focus {
+    filter: invert(1);
+    opacity: 0.75;
+}
+
+.dark-modal .modal-content {
+    background-color: #343a40;
+    color: white;
+}
+
+.dark-modal .modal-header,
+.dark-modal .modal-footer {
+    border-color: #454d55;
+}
+
+.dark-modal .modal-title {
+    color: white;
+}
+
+.dark-modal .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.dark-modal .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.categories-table-wrapper {
+    height: 500px;
+    position: relative;
+
+    .categories-table-inner {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+    }
+}
+
+.form-control-dark {
+    background-color: #343a40;
+    border-color: #454d55;
+    color: white;
+}
+
+.form-control-dark:focus {
+    background-color: #343a40;
+    border-color: #007bff;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-control-dark::placeholder {
+    color: #6c757d;
+}
+
+input {
+    color-scheme: dark;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.close-btn {
+    color: white;
+    cursor: pointer;
+}
